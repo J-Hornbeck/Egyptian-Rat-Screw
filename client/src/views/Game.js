@@ -10,7 +10,7 @@ const Game = () => {
       <Row className="bg-1">
         <Navbar />
         <Col className="col-11 bg-6 board">
-          <Row className="mt-4 justify-content-between">
+          <Row className="mt-4 me-4 justify-content-between">
             <Col className="flex col-2 text-center">
               <p className="player other">If 5 players</p>
             </Col>
@@ -21,7 +21,7 @@ const Game = () => {
               <p className="player other">If 6 Players</p>
             </Col>
           </Row>
-          <Row className="justify-content-between">
+          <Row className="me-4 justify-content-between">
             <Col className="flex col-2 text-center">
               <p className="player other">If 3 players</p>
             </Col>
