@@ -74,4 +74,9 @@
   font-weight: bold;
 }
 
+.tabletop {
+  background: linear-gradient(115deg, transparent 75%, #1c3629 75%) 0 0, linear-gradient(245deg, transparent 75%, #1c3629 75%) 0 0, linear-gradient(115deg, transparent 75%, #1c3629 75%) 7px -15px, linear-gradient(245deg, transparent 75%, #1c3629 75%) 7px -15px #35654d;
+  background-size: 5px 10px;
+}
+
 /*# sourceMappingURL=App.css.map */

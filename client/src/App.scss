@@ -4,6 +4,7 @@ $color-three: #00dbda;
 $color-four: #8f3500;
 $color-five: #db5100;
 $color-six: #35654d;
+$color-seven: #1c3629;
 
 .bg-1 {
   background-color: $color-one;
@@ -79,4 +80,12 @@ $color-six: #35654d;
   border-color: $color-two;
   color: $color-one;
   font-weight: bold;
+}
+
+.tabletop {
+  background: linear-gradient(115deg, transparent 75%, $color-seven 75%) 0 0,
+    linear-gradient(245deg, transparent 75%, $color-seven 75%) 0 0,
+    linear-gradient(115deg, transparent 75%, $color-seven 75%) 7px -15px,
+    linear-gradient(245deg, transparent 75%, $color-seven 75%) 7px -15px $color-six;
+  background-size: 5px 10px;
 }

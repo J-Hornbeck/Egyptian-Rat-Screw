@@ -9,7 +9,7 @@ const Game = () => {
     <div className="">
       <Row className="bg-1">
         <Navbar />
-        <Col className="col-11 bg-6 board">
+        <Col className="col-11 board tabletop">
           <Row className="mt-4 me-4 justify-content-between">
             <Col className="flex col-2 text-center">
               <p className="player other">If 5 players</p>
