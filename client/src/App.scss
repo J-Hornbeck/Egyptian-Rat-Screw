@@ -3,3 +3,80 @@ $color-two: #19ffff;
 $color-three: #00dbda;
 $color-four: #8f3500;
 $color-five: #db5100;
+$color-six: #35654d;
+
+.bg-1 {
+  background-color: $color-one;
+}
+
+.bg-2 {
+  background-color: $color-two;
+}
+
+.bg-3 {
+  background-color: $color-three;
+}
+
+.bg-4 {
+  background-color: $color-four;
+}
+
+.bg-5 {
+  background-color: $color-five;
+}
+
+.bg-6 {
+  background-color: $color-six;
+}
+
+.c-1 {
+  color: $color-one;
+}
+
+.c-2 {
+  color: $color-two;
+}
+
+.c-3 {
+  color: $color-three;
+}
+
+.c-4 {
+  color: $color-four;
+}
+
+.c-5 {
+  color: $color-five;
+}
+
+.c-6 {
+  color: $color-six;
+}
+
+.navbar {
+  height: 96vh;
+  box-sizing: content-box;
+  border-width: 3px;
+  border-style: solid;
+  border-color: $color-four;
+}
+
+.player {
+  box-sizing: content-box;
+  border-width: 3px;
+  border-style: solid;
+  background-color: $color-five;
+}
+
+.board {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.btn {
+  background-color: $color-five;
+  border-color: $color-two;
+  color: $color-one;
+  font-weight: bold;
+}
