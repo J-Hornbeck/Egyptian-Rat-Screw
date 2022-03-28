@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 const CardsSchema = new mongoose.Schema(
     {
-        suit: { type: String },
+        image: { type: String },
         value: { type: String },
+        suit: { type: String },
+        code: { type: String }
     },
-    { timestamps: true }
+    { timestamps: false }
 );
 module.exports = mongoose.model("Cards", CardsSchema);

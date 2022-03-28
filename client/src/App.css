@@ -79,4 +79,9 @@
   background-size: 5px 10px;
 }
 
+/* card size ratio is 5:7 */
+.card {
+  height: 210px;
+  width: 150px;
+}
 /*# sourceMappingURL=App.css.map */
