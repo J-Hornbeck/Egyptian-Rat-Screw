@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const CardsSchema = new mongoose.Schema(
     {
-       //put in the item Key: Type,
+        suit: { type: String },
+        value: { type: String },
     },
     { timestamps: true }
 );
