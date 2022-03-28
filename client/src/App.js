@@ -4,6 +4,8 @@ import axios from "axios";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Game from "./views/Game";
+import Card from "./components/Card";
+import PlayerJoinGame from "./components/PlayerJoinGame";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Game />} />
+          <Route path="/card" element={<Card />} />
+          <Route path="/join-game" element={<PlayerJoinGame />} />
         </Routes>
       </BrowserRouter>
     </div>
