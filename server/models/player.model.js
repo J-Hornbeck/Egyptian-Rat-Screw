@@ -6,4 +6,4 @@ const PlayerSchema = new mongoose.Schema(
     },
     { timestamps: true }
 );
-module.exports = mongoose.model("Players", PlayerSchema);
+module.exports = mongoose.model("Player", PlayerSchema);
