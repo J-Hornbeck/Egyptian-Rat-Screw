@@ -2,6 +2,7 @@ const Cards = require("../models/cards.model");
 
 //find all
 const findAll = (req, res) => {
+
   Cards.find({})
     .then((allCards) => {
       res.json(allCards);
@@ -17,6 +18,7 @@ const findAll = (req, res) => {
 
 // fine one by id
 const getCards = (req, res) => {
+
   Cards.findOne({
     _id: req.params.id
   })
@@ -26,6 +28,7 @@ const getCards = (req, res) => {
 
 // create new
 const createCards = (req, res) => {
+
   Cards.create(req.body)
     .then((newCards) => res.json(newCards))
     .cath((err) => res.json(err));
