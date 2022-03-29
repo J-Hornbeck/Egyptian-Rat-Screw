@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import GameScript from "../components/GameScript";
+import GameScript from "../components/GameScript";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Navbar from "./Navbar";
