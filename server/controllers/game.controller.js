@@ -3,10 +3,11 @@ const Game = require("../models/game.model");
 const createGame = (req, res) => {
     Game.create(req.body)
         .then((newGame) => {
-            return res.json({game: newGame})
+            res.json({game: newGame})
+            console.log(newGame);
         })
-        .cath((err) => {
-            return res.json(err)
+        .catch((err) => {
+            res.json(err)
         });
 };
 
