@@ -1,5 +1,5 @@
 import React from "react";
-import useScript from "../components/useScript";
+import GameScript from "../components/GameScript";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 

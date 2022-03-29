@@ -84,4 +84,11 @@
   height: 210px;
   width: 150px;
 }
+
+.card-back {
+  background: url("./static/img/CB5.png");
+  height: 210px;
+  width: 150px;
+}
+
 /*# sourceMappingURL=App.css.map */

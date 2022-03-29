@@ -13,7 +13,7 @@ function App() {
     <div className="">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Game />} />
+          <Route path="/game" element={<Game />} />
           <Route path="/card" element={<Card />} />
           <Route path="/join-game" element={<PlayerJoinGame />} />
           <Route path="/new-game" element={<NewGameForm />} />
