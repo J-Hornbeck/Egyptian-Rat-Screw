@@ -34,7 +34,7 @@ const createCards = (req, res) => {
 
   Cards.create(req.body)
     .then((newCards) => res.json(newCards))
-    .cath((err) => res.json(err));
+    .catch((err) => res.json(err));
 };
 
 module.exports = {

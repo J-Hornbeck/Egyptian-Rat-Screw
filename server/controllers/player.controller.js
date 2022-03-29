@@ -33,8 +33,9 @@ const createPlayer = (req, res) => {
     Player.create(req.body)
         .then((newPlayer) => {
             res.json({player: newPlayer})
+            console.log(newPlayer);
         })
-        .cath((err) => res.json(err));
+        .catch((err) => res.json(err));
 };
 
 const deletePlayer = (req, res) => {
