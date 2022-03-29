@@ -1,15 +1,17 @@
 const mongoose = require("mongoose");
 
-let Player = require("/Player").schema;
-
 const GameSchema = new mongoose.Schema(
-  {
-    host: {
-      type: String,
-      default: "Host",
+    {
+        numOfPlayers: { type: Number },
+        slapRule1: { type: String },
+        slapRule2: { type: String },
+        slapRule3: { type: String },
+        slapRule4: { type: String },
+        slapRule5: { type: String },
+        slapRule6: { type: String },
+        deck: { type: Object },
+        code: { type: String }
     },
-    players: [Player],
-  },
-  { timestamps: true }
+    { timestamps: true }
 );
 module.exports = mongoose.model("Game", GameSchema);
