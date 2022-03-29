@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const PlayerSchema = new mongoose.Schema(
     {
         nickname: { type: String },
-        deck: { type: Array }
+        deck: { type: [] }
     },
     { timestamps: true }
 );

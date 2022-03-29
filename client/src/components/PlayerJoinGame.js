@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 const PlayerJoinGame = (props) => {
 
     const[ nickname, setNickname ] = useState("");
     const [ gameId, setGameID ] = useState("");
-    const [ deck, setDeck ] = useState([]);
+    const [ deck, setDeck ] = useState();
+    const navigate = useNavigate();
 
 
     const submitHandler = (e) => {
@@ -26,8 +28,11 @@ const PlayerJoinGame = (props) => {
             .catch((err) => {
                 console.log(err)
             });
+        
+            navigate("/");
     };
 
+    // useNavigate(`/${ props.gameId}`)
     return (
         <div>
             <h1>Welcome!</h1>
