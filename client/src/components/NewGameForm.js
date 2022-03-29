@@ -18,6 +18,8 @@ const NewGameForm = (props) => {
     const[ slapRule6, setSlapRule6 ] = useState("");
     // created from deck of cards api call
     const [ deck, setDeck ] = useState({});
+
+    const [ cardsToDeal, setCardsToDeal ] = useState({});
     // random string of 6 characters
     const [ code, setCode ] = useState("");
 
@@ -26,10 +28,17 @@ const NewGameForm = (props) => {
             .then(res=>{setDeck(res.data)})
     }, []);
 
+    useEffect(() => {
+        axios.get(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=52`)
+            .then(res=>{setCardsToDeal(res.data)})
+    }, [deck]);
+
     const submitHandler = (e) => {
         e.preventDefault();
         console.log("this is the deck")
         console.log(deck);
+        console.log(deck.remaining);
+        console.log(cardsToDeal);
         axios.post('http://localhost:8000/api/games', {
             numOfPlayers,
             slapRule1,
@@ -60,9 +69,14 @@ const NewGameForm = (props) => {
                 console.log(err)
             });
     };
+
+    var filters = [{ "user": "abc"}, {"application": "xyz"}];
+
+
     return (
         <div>
             { deck.deck_id }
+            { deck.remaining }
 
             <h1>Start New Game</h1>
             <Form onSubmit={submitHandler}>
