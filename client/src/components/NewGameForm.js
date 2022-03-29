@@ -63,6 +63,7 @@ const NewGameForm = (props) => {
     return (
         <div>
             { deck.deck_id }
+
             <h1>Start New Game</h1>
             <Form onSubmit={submitHandler}>
                 <Form.Check 
