@@ -89,3 +89,15 @@ $color-seven: #1c3629;
     linear-gradient(245deg, transparent 75%, $color-seven 75%) 7px -15px $color-six;
   background-size: 5px 10px;
 }
+
+/* card size ratio is 5:7 */
+.card {
+  height: 210px;
+  width: 150px;
+}
+
+.card-back {
+  background: url("./static/img/CB5.png");
+  height: 210px;
+  width: 150px;
+}

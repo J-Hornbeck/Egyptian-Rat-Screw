@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const GameSchema = new mongoose.Schema(
     {
         numOfPlayers: { type: Number },
@@ -8,7 +9,7 @@ const GameSchema = new mongoose.Schema(
         slapRule4: { type: String },
         slapRule5: { type: String },
         slapRule6: { type: String },
-        deck: { type: Object },
+        cards: { type: Array },
         code: { type: String }
     },
     { timestamps: true }

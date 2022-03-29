@@ -23,6 +23,8 @@ const NewGameForm = (props) => {
     // random string of 6 characters
     const [ code, setCode ] = useState("");
 
+    const {cards, deck_id, remaining, success } = cardsToDeal;
+
     useEffect(() => {
         axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
             .then(res=>{setDeck(res.data)})
@@ -39,6 +41,7 @@ const NewGameForm = (props) => {
         console.log(deck);
         console.log(deck.remaining);
         console.log(cardsToDeal);
+        console.log(cards);
         axios.post('http://localhost:8000/api/games', {
             numOfPlayers,
             slapRule1,
@@ -47,15 +50,15 @@ const NewGameForm = (props) => {
             slapRule4,
             slapRule5,
             slapRule6,
-            deck,
+            cards,
             code
         })
 
             .then((res) => {
                 // console.log(res);
                 console.log(res.data.game);
-                
-                setNumOfPlayers()
+                console.log("hi");
+                setNumOfPlayers();
                 setSlapRule1("");
                 setSlapRule2("");
                 setSlapRule3("");
