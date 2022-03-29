@@ -32,7 +32,7 @@ const getOnePlayer = (req, res) => {
 const createPlayer = (req, res) => {
     Player.create(req.body)
         .then((newPlayer) => {
-            res.json({newPlayer})
+            res.json({player: newPlayer})
         })
         .cath((err) => res.json(err));
 };

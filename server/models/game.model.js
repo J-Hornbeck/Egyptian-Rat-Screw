@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const GameSchema = new mongoose.Schema(
     {
         numOfPlayers: { type: Number },
-        slapRule1: { type: Boolean },
-        slapRule2: { type: Boolean },
-        slapRule3: { type: Boolean },
-        slapRule4: { type: Boolean },
-        slapRule5: { type: Boolean },
-        slapRule6: { type: Boolean },
+        slapRule1: { type: String },
+        slapRule2: { type: String },
+        slapRule3: { type: String },
+        slapRule4: { type: String },
+        slapRule5: { type: String },
+        slapRule6: { type: String },
         deck: { type: Object },
         code: { type: String }
     },

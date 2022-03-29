@@ -3,9 +3,11 @@ const Game = require("../models/game.model");
 const createGame = (req, res) => {
     Game.create(req.body)
         .then((newGame) => {
-            res.json({newGame})
+            return res.json({game: newGame})
         })
-        .cath((err) => res.json(err));
+        .cath((err) => {
+            return res.json(err)
+        });
 };
 
 const deleteGame = (req, res) => {
