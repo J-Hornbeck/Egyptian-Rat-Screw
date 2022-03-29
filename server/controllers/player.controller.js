@@ -27,10 +27,13 @@ const getOnePlayer = (req, res) => {
 //         .catch((err) => res.json(err));
 // };
 
+
 // create new
 const createPlayer = (req, res) => {
     Player.create(req.body)
-        .then((newPlayer) => res.json(newPlayer))
+        .then((newPlayer) => {
+            res.json({newPlayer})
+        })
         .cath((err) => res.json(err));
 };
 
