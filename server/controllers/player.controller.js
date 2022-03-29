@@ -19,13 +19,12 @@ const getOnePlayer = (req, res) => {
         .catch((err) => res.json(err));
 };
 
-// find players by game id
-// Work out db relationship between players and games, then how to find all the players
-// const getPlayersByGameId = (req, res) => {
-//     Player.findOne({ _id: req.params.id })
-//         .then((cards) => res.json(cards))
-//         .catch((err) => res.json(err));
-// };
+// find players by game code
+const getPlayersByGameCode = (req, res) => {
+    Player.find({ gameCode: req.params.gameCode })
+        .then((cards) => res.json(cards))
+        .catch((err) => res.json(err));
+};
 
 
 // create new
@@ -48,6 +47,7 @@ const deletePlayer = (req, res) => {
 module.exports = {
     findAllPlayers,
     getOnePlayer,
+    getPlayersByGameCode,
     createPlayer,
     deletePlayer,
 };

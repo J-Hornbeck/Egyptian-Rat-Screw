@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const PlayerJoinGame = (props) => {
 
     const[ nickname, setNickname ] = useState("");
-    const [ gameId, setGameID ] = useState("");
+    const [ gameCode, setGameCode ] = useState("");
     const [ deck, setDeck ] = useState();
     const navigate = useNavigate();
 
@@ -14,7 +14,8 @@ const PlayerJoinGame = (props) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/players', {
             nickname,
-            deck
+            deck,
+            gameCode
         })
 
             .then((res) => {
@@ -22,7 +23,7 @@ const PlayerJoinGame = (props) => {
                 console.log(res.data.player);
                 
                 setNickname("");
-                setGameID("");
+                setGameCode("");
                 setDeck([]);
             })
             .catch((err) => {
@@ -42,8 +43,8 @@ const PlayerJoinGame = (props) => {
                     <input type="text" name="nickname" value={ nickname } onChange={(e)=>setNickname(e.target.value)} />
                 </div>
                 <div>
-                    <label>Enter Game Id</label><br />
-                    <input type="text" name="gameId" value={ gameId } onChange={(e)=>setGameID(e.target.value)} />
+                    <label>Enter Game Code</label><br />
+                    <input type="text" name="gameCode" value={ gameCode } onChange={(e)=>setGameCode(e.target.value)} />
                 </div>
                 <button type="submit">Join Game</button>
             </form>
