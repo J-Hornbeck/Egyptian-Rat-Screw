@@ -23,10 +23,15 @@ const getOneGameByCode = (req, res) => {
         .catch((err) => res.json(err));
 };
 
-
+const updateOneGame = (req, res) => {
+    Game.findByIdAndUpdate({_id:req.params.id}, req.body, {new:true})
+    .then((updatedGame)=> res.json(updatedGame))
+    .catch((err) => res.json(err))
+}
 
 module.exports = {
     createGame,
     deleteGame,
     getOneGameByCode,
+    updateOneGame,
 };
