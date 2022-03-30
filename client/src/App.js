@@ -18,7 +18,6 @@ function App() {
           <Route path="/card" element={<Card />} />
           <Route path="/join-game" element={<PlayerJoinGame />} />
           <Route path="/new-game" element={<NewGameForm />} />
-          <Route path="/card-movement" element={<CardMovement />} />
         </Routes>
       </BrowserRouter>
     </div>
