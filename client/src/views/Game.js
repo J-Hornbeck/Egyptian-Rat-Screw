@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import GameScript from "../components/GameScript";
+import SlapRules from "../components/SlapRules";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Navbar from "./Navbar";
@@ -8,6 +8,7 @@ import axios from "axios";
 const Game = () => {
   const [players, setPlayers] = useState([]);
   const [drawPile, setDrawPile] = useState([]);
+  const [inGame, setInGame] = useState(false);
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/players`).then((res) => {
@@ -15,6 +16,14 @@ const Game = () => {
       setPlayers(res.data);
     });
   }, []);
+
+  document.body.onkeydown =
+    ("keydown",
+    (e) => {
+      if (e.which === 32) {
+        console.log("Slapped");
+      }
+    });
 
   return (
     <div className="">
@@ -76,11 +85,15 @@ const Game = () => {
 
             {/* this is for the deck pile */}
             {/* if deck is empty display "Play deck" if not empty show card */}
-            {drawPile.length > 0 ? (
+            {drawPile.length === 0 && inGame === false ? (
               <Col className="flex col-2 p-mc card-back"></Col>
-            ) : drawPile.length === 0 ? (
+            ) : drawPile.length === 0 && inGame === true ? (
               <Col className="flex col-2 text-center p-mc">
-                <p className="player">Play deck</p>
+                <p className="player">Play a card</p>
+              </Col>
+            ) : drawPile.length > 0 ? (
+              <Col className="flex col-2 text-center p-mc">
+                <p className="player">{drawPile[drawPile.length - 1]}</p>
               </Col>
             ) : null}
 
@@ -91,7 +104,7 @@ const Game = () => {
                 <div className="card-back"></div>
               </Col>
             ) : players.length >= 4 ? (
-              <Col className="flex col-2 text-center p-mr">
+              <Col className="col-2 text-center p-mr">
                 <p className="player other">{players[3].nickname}</p>
               </Col>
             ) : null}
@@ -102,8 +115,8 @@ const Game = () => {
             {/* if there are 7 players display */}
             {players.length >= 7 && players[6].deck.length > 0 ? (
               <Col className="flex col-2 text-center p-bl">
-                <p className="player other">{players[6].nickname}</p>
                 <div className="card-back"></div>
+                <p className="player other">{players[6].nickname}</p>
               </Col>
             ) : players.length >= 7 ? (
               <Col className="flex col-2 text-center p-bl">
@@ -111,7 +124,12 @@ const Game = () => {
               </Col>
             ) : null}
             {/* if player has any cards */}
-            {players && players.length > 0 ? (
+            {players && players.length > 0 && players[0].deck.length > 0 ? (
+              <Col className="col-4 text-center p-bc">
+                <div className="card-back"></div>
+                <p className="player">{players[0].nickname}</p>
+              </Col>
+            ) : players && players.length > 0 ? (
               <Col className="col-4 text-center p-bc">
                 <p className="player">{players[0].nickname}</p>
               </Col>
@@ -119,8 +137,8 @@ const Game = () => {
             {/* if there are 8 players display */}
             {players.length >= 8 && players[7].deck.length > 0 ? (
               <Col className="flex col-2 text-center p-br">
-                <p className="player other">{players[7].nickname}</p>
                 <div className="card-back"></div>
+                <p className="player other">{players[7].nickname}</p>
               </Col>
             ) : players.length >= 8 ? (
               <Col className="flex col-2 text-center p-br">

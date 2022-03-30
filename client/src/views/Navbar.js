@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import GameScript from "../components/GameScript";
+import SlapRules from "../components/SlapRules";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
@@ -28,18 +28,20 @@ const Navbar = () => {
             </div>
           ))
         : null}
-      <div>
+      <div className="col-12 text-center">
+        <hr className="m-0" />
         <p>Game Rules:</p>
         <p>Rule 1</p>
         <p>Rule 2</p>
         <p>Rule 3</p>
         <p>Rule 4</p>
       </div>
-      <div>
+      <div className="flex flex-column justify-content-center">
         <button className="btn">Exit Game</button>
         <button className="btn">Restart Game</button>
       </div>
-      <p>Game ID:</p>
+      <p className="mb-0 text-center">Game ID:</p>
+      <p className="mb-0 mt-0 text-center">game id here</p>
     </Col>
   );
 };
