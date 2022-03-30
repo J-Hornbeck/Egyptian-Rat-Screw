@@ -7,7 +7,6 @@ import Game from "./views/Game";
 import Card from "./components/Card";
 import PlayerJoinGame from "./components/PlayerJoinGame";
 import NewGameForm from "./components/NewGameForm";
-import CardMovement from "./components/CardMovement";
 
 function App() {
   return (
