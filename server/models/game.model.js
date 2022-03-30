@@ -9,7 +9,7 @@ const GameSchema = new mongoose.Schema(
         // slapRule4: { type: String },
         // slapRule5: { type: String },
         // slapRule6: { type: String },
-        cards: { type: Array },
+        deck: { type: Object },
         code: { type: String }
     },
     { timestamps: true }
