@@ -4,17 +4,29 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Navbar from "./Navbar";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Game = () => {
   const [players, setPlayers] = useState([]);
   const [drawPile, setDrawPile] = useState([]);
   const [inGame, setInGame] = useState(false);
+  const { id } = useParams();
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/players`).then((res) => {
       console.log(res.data);
       setPlayers(res.data);
     });
+  }, []);
+
+  const { cards } = drawPile;
+
+  useEffect(() => {
+    axios
+      .get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=52`)
+      .then((res) => {
+        setDrawPile(res.data);
+      });
   }, []);
 
   document.body.onkeydown =
