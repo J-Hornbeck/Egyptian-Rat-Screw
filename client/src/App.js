@@ -1,19 +1,39 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
-import axios from "axios";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Game from "./views/Game";
 import Card from "./components/Card";
 import PlayerJoinGame from "./components/PlayerJoinGame";
 import NewGameForm from "./components/NewGameForm";
 import CardMovement from "./components/CardMovement";
+import Login from "./views/Login";
+import Account from "./views/Account";
+import Register from "./views/Register";
 
 function App() {
+
+  const [userLoggedIn, setUserLoggedIn] = useState({})
+
+
+
   return (
     <div className="">
       <BrowserRouter>
         <Routes>
+        <Route path="/register" element={<Register 
+            userLoggedIn = {userLoggedIn}
+            setUserLoggedIn = {setUserLoggedIn}
+            />} />
+          <Route path="/login" element={<Login 
+            userLoggedIn = {userLoggedIn}
+            setUserLoggedIn = {setUserLoggedIn}
+            />} />
+            <Route path="/account" element={<Account 
+            userLoggedIn = {userLoggedIn}
+            setUserLoggedIn = {setUserLoggedIn}
+            />} />
+          <Route path="/" element={<Game />} />
           <Route path="/game" element={<Game />} />
           <Route path="/card" element={<Card />} />
           <Route path="/join-game" element={<PlayerJoinGame />} />
