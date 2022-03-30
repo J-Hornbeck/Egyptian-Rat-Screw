@@ -16,7 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 
 require("./config/mongoose.config");
 require("./routes/cards.routes")(app);
+require("./routes/player.routes")(app);
 require("./routes/users.routes")(app);
+require("./routes/game.routes")(app);
 
 const server = app.listen(port, () => {
    console.log(`Listening on port: ${port}`) 

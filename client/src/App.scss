@@ -6,6 +6,10 @@ $color-five: #db5100;
 $color-six: #35654d;
 $color-seven: #1c3629;
 
+* {
+  overflow: hidden;
+}
+
 .bg-1 {
   background-color: $color-one;
 }
@@ -55,18 +59,63 @@ $color-seven: #1c3629;
 }
 
 .navbar {
-  height: 96vh;
-  box-sizing: content-box;
-  border-width: 3px;
-  border-style: solid;
-  border-color: $color-four;
+  height: 100vh;
+  border-width: 5px;
+  border-right-style: solid;
+  overflow-x: auto;
+  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(
+      #1d1d1d 25%,
+      #1a1a1a 25%,
+      #1a1a1a 50%,
+      transparent 50%,
+      transparent 75%,
+      #242424 75%,
+      #242424
+    );
+  background-color: #131313;
+  background-size: 20px 20px;
+  color: black;
+  font-family: cursive;
+  font-size: 1rem;
+  -webkit-text-stroke: 1px $color-five;
+}
+
+hr {
+  color: $color-five;
+  opacity: 1;
 }
 
 .player {
-  box-sizing: content-box;
   border-width: 3px;
-  border-style: solid;
-  background-color: $color-five;
+  border-style: ridge;
+  border-radius: 1rem;
+  border-color: $color-five;
+  -webkit-filter: drop-shadow(0px 0px 6px $color-five);
+  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(
+      #1d1d1d 25%,
+      #1a1a1a 25%,
+      #1a1a1a 50%,
+      transparent 50%,
+      transparent 75%,
+      #242424 75%,
+      #242424
+    );
+  background-color: #131313;
+  background-size: 20px 20px;
+  color: black;
+  font-family: cursive;
+  font-size: 1rem;
+  -webkit-text-stroke: 1px $color-five;
 }
 
 .board {
@@ -76,16 +125,133 @@ $color-seven: #1c3629;
 }
 
 .btn {
-  background-color: $color-five;
-  border-color: $color-two;
-  color: $color-one;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border-width: 3px;
+  border-style: ridge;
+  border-radius: 1rem;
+  border-color: $color-five;
   font-weight: bold;
+  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(
+      #1d1d1d 25%,
+      #1a1a1a 25%,
+      #1a1a1a 50%,
+      transparent 50%,
+      transparent 75%,
+      #242424 75%,
+      #242424
+    );
+  background-color: #131313;
+  background-size: 20px 20px;
+  color: black;
+  font-family: cursive;
+  font-size: 1rem;
+  -webkit-text-stroke: 1px $color-five;
 }
 
 .tabletop {
-  background: linear-gradient(115deg, transparent 75%, $color-seven 75%) 0 0,
-    linear-gradient(245deg, transparent 75%, $color-seven 75%) 0 0,
-    linear-gradient(115deg, transparent 75%, $color-seven 75%) 7px -15px,
-    linear-gradient(245deg, transparent 75%, $color-seven 75%) 7px -15px $color-six;
-  background-size: 5px 10px;
+  background: radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
+  background-color: $color-seven;
+  background-size: 16px 16px;
+}
+
+/* card size ratio is 5:7 */
+.card {
+  height: 210px;
+  width: 150px;
+}
+
+.card-back {
+  background: url("./static/img/CB5.png");
+  height: 210px;
+  width: 150px;
+}
+
+// position - top left
+.p-tl {
+  position: absolute;
+  top: 1%;
+  left: 8%;
+  padding-top: 1rem;
+}
+
+// position - top center
+.p-tc {
+  position: absolute;
+  top: 1%;
+  left: 53%;
+  transform: translateX(-50%);
+  padding-top: 1rem;
+}
+
+// position - top right
+.p-tr {
+  position: absolute;
+  top: 1%;
+  left: 98%;
+  transform: translateX(-100%);
+  padding-top: 1rem;
+}
+
+// position - middle left
+.p-ml {
+  position: absolute;
+  top: 48%;
+  left: 8%;
+  transform: translateY(-50%);
+  padding-top: 1rem;
+}
+
+// position - middle center
+.p-mc {
+  position: absolute;
+  top: 48%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  padding-top: 1rem;
+}
+
+// position - middle right
+.p-mr {
+  position: absolute;
+  top: 48%;
+  left: 98%;
+  transform: translate(-100%, -50%);
+  padding-top: 1rem;
+}
+
+// position - bottom left
+.p-bl {
+  position: absolute;
+  top: 100%;
+  left: 8%;
+  transform: translateY(-100%);
+  padding-top: 1rem;
+}
+
+// position - bottom center
+.p-bc {
+  position: absolute;
+  top: 100%;
+  left: 53%;
+  transform: translate(-50%, -100%);
+  padding-top: 1rem;
+}
+
+// position - bottom right
+.p-br {
+  position: absolute;
+  top: 100%;
+  left: 98%;
+  transform: translate(-100%, -100%);
+  padding-top: 1rem;
 }

@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const PlayerSchema = new mongoose.Schema(
     {
         nickname: { type: String },
-        deck: { type: Array }
+        deck: { type: [] }, 
+        gameCode: { type: String }
     },
     { timestamps: true }
 );
-module.exports = mongoose.model("Players", PlayerSchema);
+module.exports = mongoose.model("Player", PlayerSchema);

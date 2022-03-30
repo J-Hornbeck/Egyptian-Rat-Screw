@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Game from "./views/Game";
+import Card from "./components/Card";
+import PlayerJoinGame from "./components/PlayerJoinGame";
+import NewGameForm from "./components/NewGameForm";
+import CardMovement from "./components/CardMovement";
 import Login from "./views/Login";
 import Account from "./views/Account";
 import Register from "./views/Register";
@@ -30,6 +34,10 @@ function App() {
             setUserLoggedIn = {setUserLoggedIn}
             />} />
           <Route path="/" element={<Game />} />
+          <Route path="/game" element={<Game />} />
+          <Route path="/card" element={<Card />} />
+          <Route path="/join-game" element={<PlayerJoinGame />} />
+          <Route path="/new-game" element={<NewGameForm />} />
         </Routes>
       </BrowserRouter>
     </div>
