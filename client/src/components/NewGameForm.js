@@ -23,17 +23,22 @@ const NewGameForm = (props) => {
     // random string of 6 characters
     const [ code, setCode ] = useState("");
 
-    const {cards, deck_id, remaining, success } = cardsToDeal;
+    const { cards } = cardsToDeal;
 
     useEffect(() => {
         axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
             .then(res=>{setDeck(res.data)})
+            .then(setCode(deck.deck_id))
     }, []);
 
     useEffect(() => {
         axios.get(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=52`)
             .then(res=>{setCardsToDeal(res.data)})
+            
     }, [deck]);
+
+
+
 
     const submitHandler = (e) => {
         e.preventDefault();
