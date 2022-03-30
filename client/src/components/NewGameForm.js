@@ -10,12 +10,12 @@ const NewGameForm = (props) => {
     const[ slapRule2, setSlapRule2 ] = useState("");
     // same as first
     const[ slapRule3, setSlapRule3 ] = useState("");
-    // marriage
-    const[ slapRule4, setSlapRule4 ] = useState("");
-    // adds to 10
-    const[ slapRule5, setSlapRule5 ] = useState("");
-    // run of 4
-    const[ slapRule6, setSlapRule6 ] = useState("");
+    // // marriage
+    // const[ slapRule4, setSlapRule4 ] = useState("");
+    // // adds to 10
+    // const[ slapRule5, setSlapRule5 ] = useState("");
+    // // run of 4
+    // const[ slapRule6, setSlapRule6 ] = useState("");
     // created from deck of cards api call
     const [ deck, setDeck ] = useState({});
 
@@ -47,9 +47,9 @@ const NewGameForm = (props) => {
             slapRule1,
             slapRule2,
             slapRule3,
-            slapRule4,
-            slapRule5,
-            slapRule6,
+            // slapRule4,
+            // slapRule5,
+            // slapRule6,
             cards,
             code
         })
@@ -62,9 +62,9 @@ const NewGameForm = (props) => {
                 setSlapRule1("");
                 setSlapRule2("");
                 setSlapRule3("");
-                setSlapRule4("");
-                setSlapRule5("");
-                setSlapRule6("");
+                // setSlapRule4("");
+                // setSlapRule5("");
+                // setSlapRule6("");
                 setDeck({});
                 setCode("");
             })
@@ -73,13 +73,9 @@ const NewGameForm = (props) => {
             });
     };
 
-    var filters = [{ "user": "abc"}, {"application": "xyz"}];
-
 
     return (
         <div>
-            { deck.deck_id }
-            { deck.remaining }
 
             <h1>Start New Game</h1>
             <Form onSubmit={submitHandler}>
@@ -101,7 +97,7 @@ const NewGameForm = (props) => {
                     label="Same as First"
                     onChange={(e)=>setSlapRule3(e.target.value)}
                 />
-                <Form.Check 
+                {/* <Form.Check 
                     type="switch"
                     id="custom-switch"
                     label="Marriage"
@@ -118,7 +114,7 @@ const NewGameForm = (props) => {
                     id="custom-switch"
                     label="Run of 4"
                     onChange={(e)=>setSlapRule6(e.target.value)}
-                />
+                /> */}
                 <Button type="submit">Create New Game</Button>
             </Form>
         </div>
