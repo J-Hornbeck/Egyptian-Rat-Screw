@@ -13,14 +13,6 @@ const EndOfGame = (props) => {
     const [ foundUser, setFoundUser ] = useState(null)
     const navigate = useNavigate();
 
-    // checks if user is logged in
-    // useEffect(() => {
-    //     const loggedInUser = localStorage.getItem("user");
-    //     if (loggedInUser) {
-    //         const foundUser = JSON.parse(loggedInUser);
-    //         setUser(foundUser);
-    //     }
-    // }, []);
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/user/account')
@@ -79,12 +71,14 @@ const EndOfGame = (props) => {
             console.log(`${game.code} deleted`)
         }
 
+        navigate("/")
 
-        if (foundUser!=null){
-            navigate("/account");
-        } else {
-            navigate("/join-game");
-        }
+        // if (!userLoggedIn.email){
+        //     navigate("/join-game");
+        // } else {
+        //     navigate("/account");
+        // }
+        // userLoggedIn.userId ? navigate("/account"): navigate("/join-game")
     }
 
 
