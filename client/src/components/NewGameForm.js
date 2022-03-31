@@ -24,6 +24,7 @@ const NewGameForm = (props) => {
   let navigate = useNavigate();
   const [getDeck, setGetDeck] = useState({});
   const [drawPile, setDrawPile] = useState([]);
+  const [errorMessages, setErrorMessages] = useState("");
 
   useEffect(() => {
     axios
