@@ -3,15 +3,29 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
+
 const EndOfGame = (props) => {
 
     const { userLoggedIn } = props;
 
     const [ players, setPlayers ] = useState([]);
     const [ games, setGames ] = useState([]);
+    const [ foundUser, setFoundUser ] = useState(null)
     const navigate = useNavigate();
 
+    // checks if user is logged in
+    // useEffect(() => {
+    //     const loggedInUser = localStorage.getItem("user");
+    //     if (loggedInUser) {
+    //         const foundUser = JSON.parse(loggedInUser);
+    //         setUser(foundUser);
+    //     }
+    // }, []);
 
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/user/account')
+            .then(res=>{setFoundUser(res.data)})
+    }, []);
 
     // gets array of all games in db
     useEffect(() => {
@@ -65,7 +79,8 @@ const EndOfGame = (props) => {
             console.log(`${game.code} deleted`)
         }
 
-        if (userLoggedIn){
+
+        if (foundUser!=null){
             navigate("/account");
         } else {
             navigate("/join-game");
