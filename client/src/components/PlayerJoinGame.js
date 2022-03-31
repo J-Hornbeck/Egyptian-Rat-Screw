@@ -29,7 +29,7 @@ const PlayerJoinGame = (props) => {
         console.log(err);
       });
 
-    navigate("/game");
+    navigate(`/games/${gameCode}`);
   };
 
   return (

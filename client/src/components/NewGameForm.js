@@ -22,6 +22,8 @@ const NewGameForm = (props) => {
   // same as deck.deck_id
   const [code, setCode] = useState("");
   let navigate = useNavigate();
+  const [getDeck, setGetDeck] = useState({});
+  const [drawPile, setDrawPile] = useState([]);
 
   useEffect(() => {
     axios
@@ -30,6 +32,20 @@ const NewGameForm = (props) => {
         setDeck(res.data);
       });
   }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=52`)
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+        console.log("we are in the get request for drawpile");
+        setGetDeck(res.data);
+        console.log(getDeck);
+        console.log(drawPile)
+        // setInGame(true);
+      });
+  }, [deck]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -47,14 +63,15 @@ const NewGameForm = (props) => {
         // slapRule6,
         deck,
         code: deck.deck_id,
+        drawPile: getDeck.cards
       })
 
       .then((res) => {
         // console.log(res);
         console.log(res.data.game);
-        console.log("we got here");
+        console.log("did draw pile save?");
         console.log(deck.deck_id);
-        navigate(`/games/${deck.deck_id}`);
+        // navigate(`/games/${deck.deck_id}`);
       })
 
       .catch((err) => {
