@@ -17,6 +17,17 @@ const deleteGame = (req, res) => {
         .catch((err) => console.log(err));
 }
 
+const findAllGames = (req, res) => {
+    Game.find({})
+        .then((allGames)=>{
+            res.json(allGames);
+            console.log(allGames);
+        })
+        .catch((err) => {
+            res.json({ Message: "Something went wrong @ find all games", error: err});
+        });
+};
+
 const getOneGameByCode = (req, res) => {
     Game.findOne({ code: req.params.code })
         .then((game) => res.json(game))
@@ -34,4 +45,5 @@ module.exports = {
     deleteGame,
     getOneGameByCode,
     updateOneGame,
+    findAllGames,
 };
