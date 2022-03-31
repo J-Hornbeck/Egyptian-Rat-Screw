@@ -91,7 +91,7 @@ const getUserById = (req, res) => {
 }
 
 const updateUser = (req, res) => {
-
+	console.log(req.body.email)
 	User.findOneAndUpdate({ email: req.body.email }, req.body, {
 		new: true,
 		runValidators: true,
