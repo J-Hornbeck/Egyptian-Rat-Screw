@@ -79,12 +79,13 @@ const EndOfGame = (props) => {
             console.log(`${game.code} deleted`)
         }
 
+        navigate("/")
 
-        if (foundUser!=null){
-            navigate("/account");
-        } else {
-            navigate("/join-game");
-        }
+        // if (foundUser!=null){
+        //     navigate("/account");
+        // } else {
+        //     navigate("/join-game");
+        // }
     }
 
 
