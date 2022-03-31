@@ -16,7 +16,6 @@ const Game = (props) => {
   const [inGame, setInGame] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const { id } = useParams();
-  const [getDeck, setGetDeck] = useState({});
 
   console.log(id);
 
@@ -28,8 +27,6 @@ const Game = (props) => {
     });
   }, []);
 
-  const { cards } = drawPile;
-
   useEffect(() => {
     axios.get(`http://localhost:8000/api/games/${id}`).then((res) => {
       console.log(res.data);
@@ -38,18 +35,9 @@ const Game = (props) => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=52`)
-  //     .then((res) => {
-  //       console.log(res);
-  //       console.log(res.data);
-  //       console.log("we are in the get request for drawpile");
-  //       setGetDeck(res.data);
-  //       console.log(getDeck);
-  //       setInGame(true);
-  //     });
-  // }, [id]);
+  // game && game !== {} ? :
+
+  console.log(game);
 
   document.body.onkeydown =
     ("keydown",
@@ -68,7 +56,7 @@ const Game = (props) => {
 
   return (
     <div className="">
-      <Row className="bg-6">
+      <Row className="bg-6"> 
         <Navbar />
         <Col className="col-11 board tabletop">
           {isGameOver ? <Popup /> : null}
