@@ -13,14 +13,6 @@ const EndOfGame = (props) => {
     const [ foundUser, setFoundUser ] = useState(null)
     const navigate = useNavigate();
 
-    // checks if user is logged in
-    // useEffect(() => {
-    //     const loggedInUser = localStorage.getItem("user");
-    //     if (loggedInUser) {
-    //         const foundUser = JSON.parse(loggedInUser);
-    //         setUser(foundUser);
-    //     }
-    // }, []);
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/user/account')
@@ -81,11 +73,12 @@ const EndOfGame = (props) => {
 
         navigate("/")
 
-        // if (foundUser!=null){
-        //     navigate("/account");
-        // } else {
+        // if (!userLoggedIn.email){
         //     navigate("/join-game");
+        // } else {
+        //     navigate("/account");
         // }
+        // userLoggedIn.userId ? navigate("/account"): navigate("/join-game")
     }
 
 
