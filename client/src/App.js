@@ -10,7 +10,7 @@ import Login from "./views/Login";
 import Account from "./views/Account";
 import Register from "./views/Register";
 import EndOfGame from "./components/EndOfGame";
-import HandleSlapScript from "./components/HandleSlapScript";
+import HandleSlapScript from "./static/js/HandleSlapScript";
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState({});
