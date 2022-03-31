@@ -11,7 +11,8 @@ const PlayerJoinGame = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8000/api/players", {
+    axios
+      .post("http://localhost:8000/api/players", {
         nickname,
         deck,
         gameCode,
@@ -24,15 +25,12 @@ const PlayerJoinGame = (props) => {
         setGameCode("");
         setDeck([]);
         navigate(`/games/${gameCode}`);
-
       })
       .catch((err) => {
         setErrorMessages(err.response.data.errors);
         console.log(err.response.data);
         console.log(errorMessages);
       });
-
-
   };
 
   return (
@@ -49,11 +47,11 @@ const PlayerJoinGame = (props) => {
             value={nickname}
             onChange={(e) => setNickname(e.target.value)}
           />
-                    {errorMessages !== "" && (
-                <div>
-                  <p style={{color:"white"}}>{errorMessages.nickname?.message}</p>
-                </div>
-              )}
+          {errorMessages !== "" && (
+            <div>
+              <p className="errorMessage">{errorMessages.nickname?.message}</p>
+            </div>
+          )}
         </div>
         <div>
           <label>Enter Game Code</label>
@@ -66,13 +64,12 @@ const PlayerJoinGame = (props) => {
           />
           {/* // ? = accept undefined */}
           {errorMessages !== "" && (
-                <div>
-                  <p style={{color:"white"}}>{errorMessages.gameCode?.message}</p>
-                </div>
-              )}
+            <div>
+              <p className="errorMessage">{errorMessages.gameCode?.message}</p>
+            </div>
+          )}
         </div>
         <button className="btn mt-4" type="submit">
-
           Join Game
         </button>
       </form>
