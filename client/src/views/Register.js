@@ -39,7 +39,7 @@ const Register = (props) => {
             .then((res) => {
                 console.log(res)
                 setUserLoggedIn(res.data.userLoggedIn)
-                navigate("/");
+                navigate("/account");
             })
             .catch(err => {
                 console.log(err.response);
