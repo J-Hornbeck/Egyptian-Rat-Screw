@@ -3,9 +3,11 @@ import SlapRules from "../components/SlapRules";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Navbar = () => {
   const [players, setPlayers] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/players`).then((res) => {
@@ -15,7 +17,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Col className="col-sm navbar c-4 ms-2 bg-1 justify-content-center">
+    <Col className="col-sm navbar c-4 ms-2 bg-nv justify-content-center">
       {players
         ? players.map((player, index) => (
             <div className=" col-12">
@@ -23,7 +25,7 @@ const Navbar = () => {
                 {player.nickname} <hr className="m-0"></hr>
                 {player.deck.length} cards
               </div>
-              <hr className="m-0 bg-1"></hr>
+              <hr className="m-0 bg-nv"></hr>
             </div>
           ))
         : null}
@@ -35,12 +37,8 @@ const Navbar = () => {
         <p>Rule 3</p>
         <p>Rule 4</p>
       </div>
-      <div className="flex flex-column justify-content-center">
-        <button className="btn">Exit Game</button>
-        <button className="btn">Restart Game</button>
-      </div>
       <p className="mb-0 text-center">Game ID:</p>
-      <p className="mb-0 mt-0 text-center">game id here</p>
+      <p className="mb-0 mt-0 text-center">{id}</p>
     </Col>
   );
 };

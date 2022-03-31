@@ -1,8 +1,10 @@
 * {
   overflow: hidden;
+  color: #db5100;
+  text-shadow: black 0px 0px 2px;
 }
 
-.bg-1 {
+.bg-nv {
   background-color: #008f8f;
 }
 
@@ -69,6 +71,95 @@ hr {
   opacity: 1;
 }
 
+.page-bg {
+  background: radial-gradient(black 15%, transparent 16%) 16px 16px, radial-gradient(#db5100 15%, transparent 20%) 17px 17px;
+  background-color: #301100;
+  background-size: 64px 64px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.gif {
+  height: 180px;
+  position: absolute;
+  left: 50%;
+  top: 31px;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.gif-holder {
+  height: 50px;
+  width: 100px;
+}
+
+.title {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+#Login.title {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.box-shadow {
+  background: #19ffff20;
+  border-style: outset;
+  border-color: #19ffff;
+  box-shadow: white 0px 0px 80px;
+  height: 60%;
+  position: absolute;
+  top: 142px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#Register .box-shadow {
+  height: 70%;
+}
+
+.p-r-25 {
+  position: relative;
+  top: 25%;
+}
+
+#Register .p-r-25 {
+  top: 20%;
+}
+
+.p-r-50-l {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+input {
+  background: #19ffff20;
+}
+
+.form-check-input {
+  background-color: #db5100;
+}
+
+.form-switch .form-check-input:checked {
+  background-color: #008f8f;
+}
+
+.bg-1 {
+  background: rgba(255, 255, 255, 0.2);
+  height: 370px;
+}
+
+#Register .bg-1 {
+  height: 450px;
+}
+
 .player {
   border-width: 3px;
   border-style: ridge;
@@ -109,6 +200,10 @@ hr {
   flex-direction: column;
 }
 
+.flex {
+  display: flex;
+}
+
 .btn {
   display: flex;
   flex-wrap: wrap;
@@ -117,14 +212,13 @@ hr {
   border-style: ridge;
   border-radius: 1rem;
   border-color: #db5100;
-  font-weight: bold;
   background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px, linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px, linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px, linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px, linear-gradient(90deg, #1b1b1b 10px, transparent 10px), linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
   background-color: #131313;
   background-size: 20px 20px;
   color: black;
-  font-family: cursive;
-  font-size: 1rem;
-  -webkit-text-stroke: 1px #db5100;
+  font-family: fantasy;
+  font-size: 2rem;
+  -webkit-text-stroke: 2px #db5100;
 }
 
 .btn:hover {
@@ -137,6 +231,7 @@ hr {
   background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
   background-color: #1c3629;
   background-size: 16px 16px;
+  height: 100vh;
 }
 
 /* card size ratio is 5:7 */
