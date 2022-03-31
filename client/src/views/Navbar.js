@@ -19,12 +19,11 @@ const Navbar = () => {
       {players
         ? players.map((player, index) => (
             <div className=" col-12">
-              <p key={index} className="mb-0 text-center">
-                {player.nickname}
-              </p>
-
-              <p className="mb-0 text-center">{player.deck.length} cards</p>
-              <hr className="m-0"></hr>
+              <div key={index} className="mb-0 text-center">
+                {player.nickname} <hr className="m-0"></hr>
+                {player.deck.length} cards
+              </div>
+              <hr className="m-0 bg-1"></hr>
             </div>
           ))
         : null}
