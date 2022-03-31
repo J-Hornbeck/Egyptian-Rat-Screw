@@ -34,7 +34,8 @@ const PlayerJoinGame = (props) => {
 
   return (
     <div className="ms-5">
-      <h1>Welcome!</h1>
+      <h1>Join Game!</h1>
+
       <form onSubmit={submitHandler}>
         <div>
           <label>Enter Nickname:</label>
