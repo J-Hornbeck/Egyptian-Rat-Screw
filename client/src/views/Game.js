@@ -8,7 +8,12 @@ import { useParams } from "react-router-dom";
 import chip_blue from "../static/img/chip_blue.png";
 import Popup from "./Popup";
 import { isAccordionItemSelected } from "react-bootstrap/esm/AccordionContext";
+import * as ReactDOM from 'react-dom';
 
+// 
+// return waiting for game to load
+// return everything
+//function 3-- conditional if game ===false function 1, else function 2
 const Game = (props) => {
   const [players, setPlayers] = useState([]);
   const [game, setGame] = useState({});
@@ -44,7 +49,7 @@ const Game = (props) => {
     (e) => {
       if (e.which === 32) {
         console.log("Slapped");
-        console.log(drawPile);
+        console.log(game.drawPile);
         console.log(inGame);
         console.log(players.length);
       }
@@ -53,6 +58,7 @@ const Game = (props) => {
   // when play changes to a new player do a check to see if that player has 0 or 52 cards
   // if 0 cards skip player
   // if 52 cards setIsGameOver to true
+
 
   return (
     <div className="">
