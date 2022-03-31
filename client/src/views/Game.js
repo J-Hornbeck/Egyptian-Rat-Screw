@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import chip_blue from "../static/img/chip_blue.png";
 import Popup from "./Popup";
 import { isAccordionItemSelected } from "react-bootstrap/esm/AccordionContext";
-import * as ReactDOM from 'react-dom';
+import HandleSlapScript from "../static/js/HandleSlapScript";
 
 // 
 // return waiting for game to load
@@ -52,8 +52,11 @@ const Game = (props) => {
         console.log(game.drawPile);
         console.log(inGame);
         console.log(players.length);
+        <HandleSlapScript />
+        console.log(game.drawPile);
       }
     });
+
 
   // when play changes to a new player do a check to see if that player has 0 or 52 cards
   // if 0 cards skip player

@@ -43,6 +43,12 @@ const deletePlayer = (req, res) => {
         .catch((err) => console.log(err));
 }
 
+const updateOnePlayer = (req, res) => {
+    Player.findByIdAndUpdate({_id:req.params.id}, req.body, {new:true})
+    .then((updatedPlayer)=> res.json(updatedPlayer))
+    .catch((err) => res.json(err))
+}
+
 
 module.exports = {
     findAllPlayers,
@@ -50,4 +56,5 @@ module.exports = {
     getPlayersByGameCode,
     createPlayer,
     deletePlayer,
+    updateOnePlayer,
 };
