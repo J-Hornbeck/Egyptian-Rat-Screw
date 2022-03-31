@@ -11,8 +11,8 @@ const HandleSlapScript = (props) => {
                 console.log("doubles")
                 for(var card of game.drawPile) {
                     console.log(card)
-                    let cardToGain = game.drawPile.pop();
-                    player.deck.push(cardToGain)
+                    let cardToGain = game.drawPile[game.drawPile.length-1];
+                    player.deck.concat(cardToGain);
                 }
                 console.log(player.deck)
             } else {

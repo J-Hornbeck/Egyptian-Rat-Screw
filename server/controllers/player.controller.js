@@ -34,7 +34,7 @@ const createPlayer = (req, res) => {
             res.json({player: newPlayer})
             console.log(newPlayer);
         })
-        .catch((err) => res.json(err));
+        .catch((err) => res.status(400).json(err));
 };
 
 const deletePlayer = (req, res) => {
@@ -44,9 +44,13 @@ const deletePlayer = (req, res) => {
 }
 
 const updateOnePlayer = (req, res) => {
-    Player.findByIdAndUpdate({_id:req.params.id}, req.body, {new:true})
+    Player.findByIdAndUpdate({_id:req.params.id}, req.body, {
+        new:true,
+        runValidators: true,
+    })
     .then((updatedPlayer)=> res.json(updatedPlayer))
-    .catch((err) => res.json(err))
+    .catch((err) => res.status(400).json(err))
+    // .catch((err) => { res.status(400).json({ err }) });
 }
 
 
