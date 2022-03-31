@@ -29,7 +29,8 @@ const findAllGames = (req, res) => {
 };
 
 const getOneGameByCode = (req, res) => {
-    Game.findOne({ code: req.params.code })
+    console.log(req.params)
+    Game.findOne({ code: req.params.id })
         .then((game) => res.json(game))
         .catch((err) => res.json(err));
 };
