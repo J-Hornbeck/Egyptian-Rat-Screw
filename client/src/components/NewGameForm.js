@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Form, Button, FormControl } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const NewGameForm = (props) => {
   const [numOfPlayers, setNumOfPlayers] = useState();
@@ -20,6 +21,7 @@ const NewGameForm = (props) => {
   const [deck, setDeck] = useState({});
   // same as deck.deck_id
   const [code, setCode] = useState("");
+  let navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -50,14 +52,9 @@ const NewGameForm = (props) => {
       .then((res) => {
         // console.log(res);
         console.log(res.data.game);
-        setNumOfPlayers();
-        setSlapRule1("");
-        setSlapRule2("");
-        setSlapRule3("");
-        // setSlapRule4("");
-        // setSlapRule5("");
-        // setSlapRule6("");
-        setCode("");
+        console.log("we got here");
+        console.log(deck.deck_id);
+        navigate(`/games/${deck.deck_id}`);
       })
 
       .catch((err) => {

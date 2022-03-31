@@ -54,13 +54,15 @@ function App() {
               />
             }
           />
-          <Route path="/game" element={<Game />} />
+          <Route path="/games/:id" element={<Game />} />
+          <Route path="/games/" element={<Game />} />
           <Route path="/card" element={<Card />} />
           <Route path="/join-game" element={<PlayerJoinGame />} />
           <Route path="/new-game" element={<NewGameForm />} />
-          <Route path="/end-of-game" element={<EndOfGame 
-            userLoggedIn = {userLoggedIn}
-            />} />
+          <Route
+            path="/end-of-game"
+            element={<EndOfGame userLoggedIn={userLoggedIn} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
