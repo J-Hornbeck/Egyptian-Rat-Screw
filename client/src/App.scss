@@ -453,3 +453,11 @@ input {
   border: 1px solid #999;
   overflow: hidden;
 }
+
+.errorMessage {
+  color: $color-two;
+}
+
+.overflow-y {
+  overflow-y: auto;
+}

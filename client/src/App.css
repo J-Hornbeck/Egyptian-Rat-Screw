@@ -395,4 +395,12 @@ input {
   overflow: hidden;
 }
 
+.errorMessage {
+  color: #19ffff;
+}
+
+.overflow-y {
+  overflow-y: auto;
+}
+
 /*# sourceMappingURL=App.css.map */
