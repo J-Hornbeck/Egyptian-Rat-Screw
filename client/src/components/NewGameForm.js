@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, FormControl } from 'react-bootstrap';
 
 const NewGameForm = (props) => {
+
     const[ numOfPlayers, setNumOfPlayers ] = useState();
     // doubles
     const[ slapRule1, setSlapRule1 ] = useState("");
@@ -10,7 +11,7 @@ const NewGameForm = (props) => {
     const[ slapRule2, setSlapRule2 ] = useState("");
     // same as first
     const[ slapRule3, setSlapRule3 ] = useState("");
-    // // marriage
+    // marriage
     // const[ slapRule4, setSlapRule4 ] = useState("");
     // // adds to 10
     // const[ slapRule5, setSlapRule5 ] = useState("");
@@ -18,35 +19,21 @@ const NewGameForm = (props) => {
     // const[ slapRule6, setSlapRule6 ] = useState("");
     // created from deck of cards api call
     const [ deck, setDeck ] = useState({});
-
-    const [ cardsToDeal, setCardsToDeal ] = useState({});
-    // random string of 6 characters
+    // same as deck.deck_id
     const [ code, setCode ] = useState("");
 
-    const { cards } = cardsToDeal;
 
     useEffect(() => {
         axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
             .then(res=>{setDeck(res.data)})
-            .then(setCode(deck.deck_id))
     }, []);
-
-    useEffect(() => {
-        axios.get(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=52`)
-            .then(res=>{setCardsToDeal(res.data)})
-            
-    }, [deck]);
-
-
 
 
     const submitHandler = (e) => {
         e.preventDefault();
         console.log("this is the deck")
         console.log(deck);
-        console.log(deck.remaining);
-        console.log(cardsToDeal);
-        console.log(cards);
+        console.log(code);
         axios.post('http://localhost:8000/api/games', {
             numOfPlayers,
             slapRule1,
@@ -55,14 +42,13 @@ const NewGameForm = (props) => {
             // slapRule4,
             // slapRule5,
             // slapRule6,
-            cards,
-            code
+            deck,
+            code: deck.deck_id
         })
 
             .then((res) => {
                 // console.log(res);
                 console.log(res.data.game);
-                console.log("hi");
                 setNumOfPlayers();
                 setSlapRule1("");
                 setSlapRule2("");
@@ -70,12 +56,14 @@ const NewGameForm = (props) => {
                 // setSlapRule4("");
                 // setSlapRule5("");
                 // setSlapRule6("");
-                setDeck({});
                 setCode("");
             })
+            
             .catch((err) => {
                 console.log(err)
             });
+        
+        
     };
 
 
@@ -102,6 +90,7 @@ const NewGameForm = (props) => {
                     label="Same as First"
                     onChange={(e)=>setSlapRule3(e.target.value)}
                 />
+                {/* Set up to add additional slap rules */}
                 {/* <Form.Check 
                     type="switch"
                     id="custom-switch"
@@ -122,6 +111,10 @@ const NewGameForm = (props) => {
                 /> */}
                 <Button type="submit">Create New Game</Button>
             </Form>
+            <div>
+                <h4>New Game Code: </h4>
+                    <h5>{ deck.deck_id }</h5>
+            </div>
         </div>
     )
 }

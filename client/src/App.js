@@ -33,6 +33,10 @@ function App() {
             userLoggedIn = {userLoggedIn}
             setUserLoggedIn = {setUserLoggedIn}
             />} />
+          <Route path="/" element={<Login 
+            userLoggedIn = {userLoggedIn}
+            setUserLoggedIn = {setUserLoggedIn}
+            />} />
           <Route path="/game" element={<Game />} />
           <Route path="/card" element={<Card />} />
           <Route path="/join-game" element={<PlayerJoinGame />} />
