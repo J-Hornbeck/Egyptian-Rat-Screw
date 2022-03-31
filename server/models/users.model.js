@@ -46,7 +46,7 @@ UserSchema.virtual("confirmPassword")
 
 UserSchema.pre("validate", function(next) {
     if(this.confirmPassword === ""){
-        his.invalidate("confirmPassword", "Error: confirm password is required");
+        this.invalidate("confirmPassword", "Error: confirm password is required");
     }
     if(this.password !== this.confirmPassword) {
         this.invalidate("confirmPassword", "Error: passwords didn't match, please type them again");
