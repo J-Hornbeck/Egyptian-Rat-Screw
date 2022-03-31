@@ -11,10 +11,12 @@ import { isAccordionItemSelected } from "react-bootstrap/esm/AccordionContext";
 
 const Game = (props) => {
   const [players, setPlayers] = useState([]);
+  const [game, setGame] = useState({});
   const [drawPile, setDrawPile] = useState([]);
   const [inGame, setInGame] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const { id } = useParams();
+  const [getDeck, setGetDeck] = useState({});
 
   console.log(id);
 
@@ -29,17 +31,25 @@ const Game = (props) => {
   const { cards } = drawPile;
 
   useEffect(() => {
-    axios
-      .get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=52`)
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-        console.log("we are in the get request for drawpile");
-        setDrawPile(res.data.cards);
-        console.log(drawPile);
-        setInGame(true);
-      });
-  }, [id]);
+    axios.get(`http://localhost:8000/api/games/${id}`).then((res) => {
+      console.log(res.data);
+      console.log("we are in the get request for game");
+      setGame(res.data);
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=52`)
+  //     .then((res) => {
+  //       console.log(res);
+  //       console.log(res.data);
+  //       console.log("we are in the get request for drawpile");
+  //       setGetDeck(res.data);
+  //       console.log(getDeck);
+  //       setInGame(true);
+  //     });
+  // }, [id]);
 
   document.body.onkeydown =
     ("keydown",

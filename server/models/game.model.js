@@ -10,7 +10,8 @@ const GameSchema = new mongoose.Schema(
         // slapRule5: { type: String },
         // slapRule6: { type: String },
         deck: { type: Object },
-        code: { type: String }
+        code: { type: String },
+        drawPile: { type: Array },
     },
     { timestamps: true }
 );
