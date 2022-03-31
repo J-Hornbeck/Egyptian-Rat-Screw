@@ -1,9 +1,12 @@
 import React from "react";
+import EndOfGame from "../components/EndOfGame";
 
 const Popup = (props) => {
   return (
     <div className="popup-box">
-      <div className="box">{/* import companent for endgame */}</div>
+      <div className="box">
+        <EndOfGame />
+      </div>
     </div>
   );
 };

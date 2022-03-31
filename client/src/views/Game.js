@@ -7,17 +7,21 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import chip_blue from "../static/img/chip_blue.png";
 import Popup from "./Popup";
+import { isAccordionItemSelected } from "react-bootstrap/esm/AccordionContext";
 
-const Game = () => {
+const Game = (props) => {
   const [players, setPlayers] = useState([]);
   const [drawPile, setDrawPile] = useState([]);
   const [inGame, setInGame] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const { id } = useParams();
 
+  console.log(id);
+
   useEffect(() => {
     axios.get(`http://localhost:8000/api/players`).then((res) => {
       console.log(res.data);
+      console.log("we are in the get request for players");
       setPlayers(res.data);
     });
   }, []);
@@ -28,15 +32,23 @@ const Game = () => {
     axios
       .get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=52`)
       .then((res) => {
-        setDrawPile(res.data);
+        console.log(res);
+        console.log(res.data);
+        console.log("we are in the get request for drawpile");
+        setDrawPile(res.data.cards);
+        console.log(drawPile);
+        setInGame(true);
       });
-  }, []);
+  }, [id]);
 
   document.body.onkeydown =
     ("keydown",
     (e) => {
       if (e.which === 32) {
         console.log("Slapped");
+        console.log(drawPile);
+        console.log(inGame);
+        console.log(players.length);
       }
     });
 
@@ -118,7 +130,7 @@ const Game = () => {
               </Col>
             ) : drawPile.length > 0 ? (
               <Col className=" col-2 text-center p-mc">
-                <p className="player">{drawPile[drawPile.length - 1]}</p>
+                {/* <p className="player">{drawPile[drawPile.length - 1]}</p> */}
               </Col>
             ) : null}
 
