@@ -32,7 +32,7 @@ const PlayerJoinGame = (props) => {
     };
 
 
-  // useNavigate(`/${ props.gameId}`)
+
   return (
     <div>
       <h1>Welcome!</h1>
