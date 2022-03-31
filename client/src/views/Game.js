@@ -4,13 +4,18 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Navbar from "./Navbar";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
+import chip_blue from "../static/img/chip_blue.png";
+import Popup from "./Popup";
+import { useNavigate } from "react-router-dom";
 
 const Game = () => {
   const [players, setPlayers] = useState([]);
   const [drawPile, setDrawPile] = useState([]);
   const [inGame, setInGame] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
   const { id } = useParams();
+  let navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/players`).then((res) => {
@@ -37,11 +42,16 @@ const Game = () => {
       }
     });
 
+  // when play changes to a new player do a check to see if that player has 0 or 52 cards
+  // if 0 cards skip player
+  // if 52 cards setIsGameOver to true
+
   return (
     <div className="">
       <Row className="bg-6">
         <Navbar />
         <Col className="col-11 board tabletop">
+          {isGameOver ? <Popup /> : null}
           {/* top row */}
           <Row className="mt-4 me-4">
             {/* if there are 5 players display */}
@@ -53,6 +63,8 @@ const Game = () => {
             ) : players.length >= 5 ? (
               <Col className="col-2 text-center p-tl">
                 <p className="player other">{players[4].nickname}</p>
+                <img className="chip" src={chip_blue} alt="chip" />
+                {/* <div className="chip"></div> */}
               </Col>
             ) : null}
 
@@ -65,6 +77,7 @@ const Game = () => {
             ) : players.length >= 2 ? (
               <Col className="col-2 text-center p-tc">
                 <p className="player other">{players[1].nickname}</p>
+                <img className="chip" src={chip_blue} alt="chip" />
               </Col>
             ) : null}
 
@@ -77,6 +90,7 @@ const Game = () => {
             ) : players.length >= 6 ? (
               <Col className="flex col-2 text-center p-tr">
                 <p className="player other">{players[5].nickname}</p>
+                <img className="chip" src={chip_blue} alt="chip" />
               </Col>
             ) : null}
           </Row>
@@ -92,6 +106,7 @@ const Game = () => {
             ) : players.length >= 3 ? (
               <Col className="flex col-2 text-center p-ml">
                 <p className="player other">{players[2].nickname}</p>
+                <img className="chip" src={chip_blue} alt="chip" />
               </Col>
             ) : null}
 
@@ -118,6 +133,7 @@ const Game = () => {
             ) : players.length >= 4 ? (
               <Col className="col-2 text-center p-mr">
                 <p className="player other">{players[3].nickname}</p>
+                <img className="chip" src={chip_blue} alt="chip" />
               </Col>
             ) : null}
           </Row>
@@ -133,6 +149,7 @@ const Game = () => {
             ) : players.length >= 7 ? (
               <Col className="flex col-2 text-center p-bl">
                 <p className="player other">{players[6].nickname}</p>
+                <img className="chip" src={chip_blue} alt="chip" />
               </Col>
             ) : null}
             {/* if player has any cards */}
@@ -144,6 +161,7 @@ const Game = () => {
             ) : players && players.length > 0 ? (
               <Col className="col-4 text-center p-bc">
                 <p className="player">{players[0].nickname}</p>
+                <img className="chip" src={chip_blue} alt="chip" />
               </Col>
             ) : null}
             {/* if there are 8 players display */}
@@ -155,6 +173,7 @@ const Game = () => {
             ) : players.length >= 8 ? (
               <Col className="flex col-2 text-center p-br">
                 <p className="player other">{players[7].nickname}</p>
+                <img className="chip" src={chip_blue} alt="chip" />
               </Col>
             ) : null}
           </Row>
