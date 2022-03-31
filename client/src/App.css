@@ -79,6 +79,11 @@ hr {
   width: 100vw;
 }
 
+#EndOfGame .page-bg {
+  height: auto;
+  width: auto;
+}
+
 .gif {
   height: 180px;
   position: absolute;
@@ -121,7 +126,7 @@ hr {
 }
 
 #Register .box-shadow {
-  height: 70%;
+  height: 80%;
 }
 
 .p-r-25 {
@@ -130,7 +135,7 @@ hr {
 }
 
 #Register .p-r-25 {
-  top: 20%;
+  top: 15%;
 }
 
 .p-r-50-l {
@@ -157,7 +162,7 @@ input {
 }
 
 #Register .bg-1 {
-  height: 450px;
+  height: 580px;
 }
 
 .player {
@@ -181,17 +186,27 @@ input {
 }
 
 .player:active + .chip {
-  position: absolute;
   height: 1rem;
   width: 1rem;
-  top: 36%;
-  left: 84%;
 }
 
 .chip {
+  position: absolute;
+  top: 36%;
+  left: 84%;
   height: 0rem;
   width: 0rem;
   display: flex;
+}
+
+#top .chip {
+  top: 8%;
+  left: 82%;
+}
+
+#bottom .chip {
+  top: 86%;
+  left: 80%;
 }
 
 .board {
@@ -244,6 +259,24 @@ input {
   background: url("./static/img/CB5.png");
   height: 210px;
   width: 150px;
+}
+
+.players-tb {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.player-3 {
+  position: absolute;
+  top: 36%;
+  left: 26%;
+}
+
+.player-4 {
+  position: absolute;
+  top: 36%;
+  left: 72%;
 }
 
 .card-back:hover {
@@ -333,6 +366,22 @@ input {
   z-index: 1;
 }
 
+#EndOfGame .gif {
+  height: 114px;
+}
+
+#EndOfGame .box-shadow {
+  width: 90%;
+  top: 100px;
+}
+
+#EndOfGame .eog {
+  position: relative;
+  left: 50%;
+  transform: translateX(-20%);
+  top: 20%;
+}
+
 .box {
   position: relative;
   width: 70%;
@@ -342,9 +391,8 @@ input {
   margin-top: calc(15vh - 20px);
   background: #fff;
   border-radius: 4px;
-  padding: 20px;
   border: 1px solid #999;
-  overflow: auto;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=App.css.map */
