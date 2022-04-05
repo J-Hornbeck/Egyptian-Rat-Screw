@@ -8,7 +8,7 @@ $color-six: #35654d;
 $color-seven: #1c3629;
 
 * {
-  overflow: hidden;
+  // overflow: hidden;
   color: $color-five;
   text-shadow: black 0px 0px 2px;
 }
@@ -460,4 +460,8 @@ input {
 
 .overflow-y {
   overflow-y: auto;
+}
+
+.overflow-off {
+    overflow: hidden;
 }

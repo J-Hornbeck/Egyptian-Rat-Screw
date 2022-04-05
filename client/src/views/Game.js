@@ -10,7 +10,7 @@ import Popup from "./Popup";
 import { isAccordionItemSelected } from "react-bootstrap/esm/AccordionContext";
 import HandleSlapScript from "../static/js/HandleSlapScript";
 
-// 
+//
 // return waiting for game to load
 // return everything
 //function 3-- conditional if game ===false function 1, else function 2
@@ -61,19 +61,17 @@ const Game = (props) => {
         console.log(game.drawPile);
         console.log(inGame);
         console.log(players.length);
-        <HandleSlapScript />
+        <HandleSlapScript />;
         console.log(game.drawPile);
       }
     });
-
 
   // when play changes to a new player do a check to see if that player has 0 or 52 cards
   // if 0 cards skip player
   // if 52 cards setIsGameOver to true
 
-
   return (
-    <div className="">
+    <div className="overflow-off">
       <Row className="bg-6">
         <Navbar />
         <Col className="col-11 board tabletop">
