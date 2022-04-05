@@ -6,7 +6,8 @@ const Card = () => {
   // on click, on up arrow, play card
 
   const [responseData, setResponseData] = useState();
-  const [deckId, setDeckId] = useState("");
+  const [deckId, setDeckId] = useState();
+  const [playDeck, setPlayDeck] = useState([]);
 
   useEffect(() => {
     axios
@@ -17,17 +18,47 @@ const Card = () => {
       });
 
     console.log("WORKING");
-    console.log(responseData);
   }, []);
 
-  console.log(responseData);
-  // setDeckId(responseData.deck_id);
-  console.log(deckId);
+  let playDeckFunction = () => {
+    axios
+      .get(
+        `https://deckofcardsapi.com/api/deck/${responseData.deck_id}/draw/?count=52`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setPlayDeck(res.data.cards);
+      });
+    console.log("onClick Worked");
+    console.log(playDeck);
+  };
+
+  document.body.onkeydown =
+    ("keydown",
+    (e) => {
+      if (e.which === 32) {
+        console.log("SpaceBar");
+        console.log(responseData.deck_id, "responseData.deck_id");
+        console.log(playDeck, "playDeck");
+        console.log(playDeck.length, "playdeck length");
+      }
+    });
 
   return (
-    <div>
-      <div className="card bg-5">{/* { responseData } */}</div>
-      <div className="card-back"></div>
+    <div id="Card" className="overflow-y">
+      {/* <div className="card bg-5">{playDeck}</div> */}
+      <div onClick={playDeckFunction} className="card-back"></div>
+      <div className="overflow-y">
+        {playDeck
+          ? playDeck.map((card, index) => {
+              return (
+                <li key={index} className="card">
+                  <img src={card.image} alt={card.code} />
+                </li>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 };

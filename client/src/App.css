@@ -1,5 +1,4 @@
 * {
-  overflow: hidden;
   color: #db5100;
   text-shadow: black 0px 0px 2px;
 }
@@ -401,6 +400,10 @@ input {
 
 .overflow-y {
   overflow-y: auto;
+}
+
+.overflow-off {
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=App.css.map */
