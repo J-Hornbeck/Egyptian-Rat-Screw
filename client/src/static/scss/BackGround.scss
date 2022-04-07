@@ -1,0 +1,54 @@
+@import 'colorScheme', 'Mixin';
+
+.bg-nv {
+    background-color: $color-one;
+}
+
+.bg-1 {
+    background: rgba(255, 255, 255, 0.2);
+    height: 370px;
+}
+
+.bg-2 {
+    background-color: $color-two;
+}
+
+.bg-3 {
+    background-color: $color-three;
+}
+
+.bg-4 {
+    background-color: $color-four;
+}
+
+.bg-5 {
+    background-color: $color-five;
+}
+
+.bg-6 {
+    background-color: $color-six;
+}
+
+.page-bg {
+    background: radial-gradient(black 15%, transparent 16%) 16px 16px,
+      radial-gradient($color-five 15%, transparent 20%) 17px 17px;
+    background-color: #301100;
+    background-size: 64px 64px;
+    height: 100vh;
+    width: 100vw;
+}
+  
+  #EndOfGame .page-bg {
+    height: auto;
+    width: auto;
+}
+
+// the background for all the content boxes
+.box-shadow {
+    background: $color-two-t;
+    border-style: outset;
+    border-color: $color-two;
+    box-shadow: white 0px 0px 80px;
+    height: 60%;
+    @include position-transform(142px, 50%, -50%, 0);
+}

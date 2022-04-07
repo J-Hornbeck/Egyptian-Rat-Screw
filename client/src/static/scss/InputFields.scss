@@ -1,0 +1,33 @@
+@import 'colorScheme';
+
+input {
+    background: $color-two-t;
+}
+
+input::placeholder{
+    color: $color-five;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid $color-five;
+  -webkit-text-fill-color: $color-five;
+  -webkit-box-shadow: 0 0 0px 1000px $color-two-t inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+  .form-check-input {
+    background-color: $color-five;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: $color-one;
+  }

@@ -1,0 +1,42 @@
+@import 'colorScheme';
+
+.btn {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-width: 3px;
+    border-style: ridge;
+    border-radius: 1rem;
+    border-color: $color-five;
+    background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+      linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+      linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+      linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+      linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+      linear-gradient(
+        #1d1d1d 25%,
+        #1a1a1a 25%,
+        #1a1a1a 50%,
+        transparent 50%,
+        transparent 75%,
+        #242424 75%,
+        #242424
+      );
+    background-color: #131313;
+    background-size: 20px 20px;
+    color: black;
+    font-family: fantasy;
+    font-size: 2rem;
+    -webkit-text-stroke: 2px $color-five;
+    box-shadow: $color-two 0px 0px 10px;
+    
+    &:hover, &:focus{
+        border-color: $color-two;
+        color: $color-five;
+        background-color: #131313;
+        -webkit-text-stroke: 1px $color-two;
+        box-shadow: $color-five 0px 0px 10px
+    }
+    
+    
+}

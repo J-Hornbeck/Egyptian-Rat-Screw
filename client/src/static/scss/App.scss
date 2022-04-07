@@ -1,0 +1,37 @@
+@import 'BackGround', 'Buttons', 'ColorScheme', 'EndOfGame', 'ERSLogo', 'Font', 'GameBoard', 'InputFields', 'Login', 'Navbar', 'PopupBox', 'Register';
+
+* {
+  color: $color-five;
+  text-shadow: black 0px 0px 2px;
+}
+
+// for all titles on pages
+.title {
+  @include position-transform(200px, 50%, -50%, 0%);
+  z-index: 1;
+}
+
+.p-r-25 {
+  @include position(relative, 25%, 0%);
+}
+
+.p-r-50-l {
+  @include position(relative, 0%, 50%);
+  transform: translateX(-50%);
+}
+
+.flex {
+  display: flex;
+}
+
+.errorMessage {
+  color: $color-two;
+}
+
+.overflow-y {
+  overflow-y: auto;
+}
+
+.overflow-off {
+    overflow: hidden;
+}

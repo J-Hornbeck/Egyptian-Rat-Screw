@@ -1,0 +1,143 @@
+@import 'colorScheme', 'Mixin';
+
+.player {
+    border-width: 3px;
+    border-style: ridge;
+    border-radius: 1rem;
+    border-color: $color-five;
+    -webkit-filter: drop-shadow(0px 0px 6px $color-five);
+    background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+      linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+      linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+      linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+      linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+      linear-gradient(
+        #1d1d1d 25%,
+        #1a1a1a 25%,
+        #1a1a1a 50%,
+        transparent 50%,
+        transparent 75%,
+        #242424 75%,
+        #242424
+      );
+    background-color: #131313;
+    background-size: 20px 20px;
+    color: black;
+    font-family: cursive;
+    font-size: 1rem;
+    -webkit-text-stroke: 1px $color-five;
+    &:active {
+        border-color: $color-two;
+        -webkit-text-stroke: 1px $color-two;
+    }
+    &:active + .chip {
+        height: 1rem;
+        width: 1rem;
+    }
+}
+  
+  .chip {
+    @include position(absolute, 36%, 84%);
+    height: 0rem;
+    width: 0rem;
+    display: flex;
+  }
+  
+  #top .chip {
+    @include position(absolute, 8%, 82%);
+  }
+  #bottom .chip {
+    @include position(absolute, 86%, 80%);
+  }
+  
+  .board {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  
+  
+.tabletop {
+    background: radial-gradient(black 15%, transparent 16%) 0 0,
+      radial-gradient(black 15%, transparent 16%) 8px 8px,
+      radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px,
+      radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
+    background-color: $color-seven;
+    background-size: 16px 16px;
+    height: 100vh;
+  }
+  
+  /* card size ratio is 5:7 */
+  .card {
+    height: 210px;
+    width: 150px;
+  }
+  
+  .card-back {
+    background: url("./static/img/CB5.png");
+    height: 210px;
+    width: 150px;
+    &:hover {
+      background: url("./static/img/CB4.png");
+      height: 210px;
+      width: 150px;
+    }
+  }
+  
+  .players-tb {
+    @include position(relative, 0%, 50%);
+    transform: translateX(-50%);
+  }
+  
+  .player-3 {
+    @include position(absolute, 36%, 26%);
+  }
+  
+  .player-4 {
+    @include position(absolute, 36%, 72%);
+  }
+  
+  // position - top left
+  .p-tl {
+    @include position-transform(1%, 8%, 0%, 0%);
+  }
+  
+  // position - top center
+  .p-tc {
+    @include position-transform(1%, 53%, -50%, 0%);
+  }
+  
+  // position - top right
+  .p-tr {
+    @include position-transform(1%, 98%, -100%, 0%);
+  }
+  
+  // position - middle left
+  .p-ml {
+    @include position-transform(48%, 8%, 0%, -50%);
+  }
+  
+  // position - middle center
+  .p-mc {
+    @include position-transform(48%, 53%, -50%, -50%);
+  }
+  
+  // position - middle right
+  .p-mr {
+    @include position-transform(48%, 98%, -100%, -50%);
+  }
+  
+  // position - bottom left
+  .p-bl {
+    @include position-transform(100%, 8%, 0%, -100%);
+  }
+  
+  // position - bottom center
+  .p-bc {
+    @include position-transform(100%, 53%, -50%, -100%);
+  }
+  
+  // position - bottom right
+  .p-br {
+    @include position-transform(100%, 98%, -100%, -100%);
+  }

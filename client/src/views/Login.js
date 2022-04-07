@@ -66,7 +66,7 @@ const Login = (props) => {
                 Email
               </Form.Label>
               <Col>
-                <Form.Control
+                <input
                   type="email"
                   name="email"
                   placeholder="johndoe@gmail.com"
@@ -80,7 +80,7 @@ const Login = (props) => {
                 Password
               </Form.Label>
               <Col>
-                <Form.Control
+                <input
                   type="password"
                   name="password"
                   onChange={handleChangeInUserFields}

@@ -1,0 +1,11 @@
+@mixin position($position, $top, $left) {
+    position: $position;
+    top: $top;
+    left: $left;
+  }
+  
+  @mixin position-transform($top, $left, $transformX, $transfromY) {
+    @include position(absolute, $top, $left);
+    transform: translate($transformX, $transfromY);
+    padding-top: 1rem;
+  }
