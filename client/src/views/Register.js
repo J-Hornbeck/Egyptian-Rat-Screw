@@ -95,7 +95,7 @@ const Register = (props) => {
         <div className="flex justify-content-around box-shadow container-sm">
           <Form
             onSubmit={handleSubmit}
-            className="col-4 p-r-25 bg-1 py-4 ps-3 overflow-y"
+            className="col-4 p-r-25 bg-1 py-4 p-3 overflow-y"
           >
             <Form.Group as={Row} controlId="firstName">
               {errors.firstName ? (

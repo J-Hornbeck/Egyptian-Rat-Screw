@@ -1,0 +1,17 @@
+@import 'Mixin';
+
+#EndOfGame {
+    .gif {
+        height: 114px;
+    }
+
+    .box-shadow {
+    width: 90%;
+    top: 100px;
+    }
+
+    .eog {
+    @include position(relative, 20%, 50%);
+    transform: translateX(-20%);
+    }
+}

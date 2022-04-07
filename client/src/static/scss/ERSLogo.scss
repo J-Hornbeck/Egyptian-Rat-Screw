@@ -1,0 +1,12 @@
+@import 'Mixin';
+
+.gif {
+    height: 180px;
+    @include position-transform(31px, 50%, -50%, 0);
+    z-index: 1;
+  }
+  
+.gif-holder {
+    height: 50px;
+    width: 100px;
+  }
